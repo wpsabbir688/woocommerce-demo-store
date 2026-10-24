@@ -1,0 +1,322 @@
+/*
+Theme Name: ShopNest
+Theme URI: https://github.com/wpsabbir688/woocommerce-demo-store
+Author: Sabbir Hossain
+Author URI: https://github.com/wpsabbir688
+Description: ShopNest is a lightweight, original WooCommerce theme built for demo stores. It works standalone with WordPress + WooCommerce — no page builder required. Includes a clean homepage layout (hero, shop-by-category, featured and best-seller grids, promo banners), styled shop, product, cart and checkout pages, and a small set of Customizer options.
+Version: 1.0.0
+Requires at least: 6.4
+Tested up to: 7.1
+Requires PHP: 8.1
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: shopnest
+Tags: e-commerce, custom-colors, custom-menu, featured-images, full-width-template, theme-options
+*/
+
+:root {
+	--shopnest-bg: #f8f7f4;
+	--shopnest-surface: #ffffff;
+	--shopnest-ink: #1c1917;
+	--shopnest-muted: #78716c;
+	--shopnest-border: #e7e5e4;
+	--shopnest-accent: #b45309;
+	--shopnest-accent-ink: #ffffff;
+	--shopnest-sale: #dc2626;
+	--shopnest-radius: 14px;
+	--shopnest-container: 1180px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+	margin: 0;
+	background: var(--shopnest-bg);
+	color: var(--shopnest-ink);
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+	line-height: 1.6;
+}
+
+a { color: var(--shopnest-accent); }
+a:hover { text-decoration: none; }
+
+img { max-width: 100%; height: auto; }
+
+.container {
+	width: 100%;
+	max-width: var(--shopnest-container);
+	margin: 0 auto;
+	padding: 0 20px;
+}
+
+.skip-link {
+	position: absolute;
+	left: -9999px;
+	top: 0;
+	background: var(--shopnest-ink);
+	color: #fff;
+	padding: 8px 14px;
+	z-index: 100;
+}
+.skip-link:focus { left: 8px; top: 8px; }
+
+/* Header */
+.site-header {
+	background: var(--shopnest-surface);
+	border-bottom: 1px solid var(--shopnest-border);
+	position: sticky;
+	top: 0;
+	z-index: 50;
+}
+.header-inner {
+	display: flex;
+	align-items: center;
+	gap: 24px;
+	padding: 16px 20px;
+}
+.site-branding a {
+	color: var(--shopnest-ink);
+	font-size: 26px;
+	font-weight: 800;
+	letter-spacing: -0.5px;
+	text-decoration: none;
+}
+.site-branding a span { color: var(--shopnest-accent); }
+.main-navigation { margin-left: auto; }
+.main-navigation ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	gap: 22px;
+	flex-wrap: wrap;
+}
+.main-navigation a {
+	color: var(--shopnest-ink);
+	font-weight: 600;
+	text-decoration: none;
+}
+.main-navigation a:hover { color: var(--shopnest-accent); }
+.header-cart a {
+	display: inline-block;
+	background: var(--shopnest-ink);
+	color: #fff;
+	padding: 8px 16px;
+	border-radius: 999px;
+	font-weight: 600;
+	text-decoration: none;
+	white-space: nowrap;
+}
+body.shopnest-header-centered .header-inner { flex-direction: column; text-align: center; }
+body.shopnest-header-centered .main-navigation { margin-left: 0; }
+
+/* Hero */
+.shopnest-hero {
+	background: var(--shopnest-ink);
+	color: #fff;
+	padding: 72px 0;
+}
+.shopnest-hero h1 {
+	margin: 0 0 12px;
+	font-size: 46px;
+	line-height: 1.15;
+	letter-spacing: -0.5px;
+}
+.shopnest-hero p {
+	margin: 0 0 24px;
+	color: #d6d3d1;
+	font-size: 18px;
+	max-width: 620px;
+}
+.shopnest-button,
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button {
+	display: inline-block;
+	background: var(--shopnest-accent);
+	color: var(--shopnest-accent-ink) !important;
+	border: 0;
+	border-radius: 999px;
+	padding: 12px 26px;
+	font-weight: 700;
+	text-decoration: none;
+	cursor: pointer;
+}
+.shopnest-button:hover,
+.woocommerce a.button:hover,
+.woocommerce button.button:hover { opacity: 0.9; }
+.shopnest-button.secondary {
+	background: transparent;
+	color: #fff !important;
+	border: 1px solid #fff;
+}
+
+/* Sections */
+.shopnest-section { padding: 56px 0 8px; }
+.shopnest-section h2 {
+	margin: 0 0 24px;
+	font-size: 28px;
+	letter-spacing: -0.3px;
+}
+
+/* Category tiles */
+.shopnest-categories {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 18px;
+}
+.shopnest-category-card {
+	background: var(--shopnest-surface);
+	border: 1px solid var(--shopnest-border);
+	border-radius: var(--shopnest-radius);
+	padding: 28px 22px;
+	text-decoration: none;
+	color: var(--shopnest-ink);
+}
+.shopnest-category-card:hover { border-color: var(--shopnest-accent); }
+.shopnest-category-card h3 { margin: 0 0 4px; font-size: 19px; }
+.shopnest-category-card p { margin: 0; color: var(--shopnest-muted); font-size: 14px; }
+
+/* Promo banners */
+.shopnest-promos {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 18px;
+}
+.shopnest-promo {
+	border-radius: var(--shopnest-radius);
+	padding: 32px 28px;
+	color: #fff;
+}
+.shopnest-promo.dark { background: var(--shopnest-ink); }
+.shopnest-promo.accent { background: var(--shopnest-accent); }
+.shopnest-promo h3 { margin: 0 0 6px; font-size: 24px; }
+.shopnest-promo p { margin: 0 0 18px; opacity: 0.9; }
+
+/* Product grids (WooCommerce) */
+.woocommerce ul.products {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 18px;
+	margin: 0 0 40px;
+	padding: 0;
+}
+.woocommerce ul.products::before,
+.woocommerce ul.products::after { display: none; }
+.woocommerce ul.products li.product {
+	width: 100% !important;
+	margin: 0 !important;
+	float: none !important;
+	background: var(--shopnest-surface);
+	border: 1px solid var(--shopnest-border);
+	border-radius: var(--shopnest-radius);
+	padding: 14px;
+	text-align: left;
+}
+.woocommerce ul.products li.product a img { border-radius: 10px; }
+.woocommerce ul.products li.product .woocommerce-loop-product__title {
+	font-size: 17px;
+	font-weight: 700;
+	color: var(--shopnest-ink);
+	padding: 10px 4px 2px;
+}
+.woocommerce ul.products li.product .price {
+	color: var(--shopnest-ink);
+	font-size: 16px;
+	font-weight: 700;
+	padding: 0 4px 8px;
+}
+.woocommerce ul.products li.product .price del { color: var(--shopnest-muted); font-weight: 400; }
+.woocommerce ul.products li.product .price ins { text-decoration: none; }
+.woocommerce span.onsale {
+	background: var(--shopnest-sale);
+	color: #fff;
+	font-weight: 700;
+	border-radius: 999px;
+	padding: 4px 10px;
+	min-height: 0;
+	line-height: 1.4;
+}
+.woocommerce ul.products li.product .button { margin: 4px; }
+
+/* Single product */
+.shopnest-woo { padding: 40px 0 64px; }
+.woocommerce div.product .product_title { font-size: 32px; line-height: 1.2; }
+.woocommerce div.product p.price { font-size: 24px; font-weight: 800; }
+.woocommerce div.product p.price del { color: var(--shopnest-muted); font-weight: 400; }
+.woocommerce div.product form.cart .button { padding: 14px 30px; }
+.woocommerce div.product .woocommerce-tabs ul.tabs li.active a { color: var(--shopnest-accent); }
+
+/* Notices, tables, forms */
+.woocommerce-message,
+.woocommerce-info,
+.woocommerce-error {
+	border-top-color: var(--shopnest-accent);
+	background: var(--shopnest-surface);
+	border-radius: var(--shopnest-radius);
+}
+.woocommerce table.shop_table {
+	background: var(--shopnest-surface);
+	border: 1px solid var(--shopnest-border);
+	border-radius: var(--shopnest-radius);
+}
+.woocommerce form .form-row input.input-text,
+.woocommerce form .form-row textarea,
+.woocommerce form .form-row select {
+	border: 1px solid var(--shopnest-border);
+	border-radius: 8px;
+	padding: 10px 12px;
+}
+.woocommerce .quantity .qty { padding: 8px; border: 1px solid var(--shopnest-border); border-radius: 8px; }
+
+/* Blog / pages */
+.shopnest-page { padding: 40px 0 64px; }
+.shopnest-page h1 { font-size: 34px; }
+.shopnest-post-card {
+	background: var(--shopnest-surface);
+	border: 1px solid var(--shopnest-border);
+	border-radius: var(--shopnest-radius);
+	padding: 24px;
+	margin-bottom: 18px;
+}
+.shopnest-post-card h2 { margin: 0 0 8px; }
+.shopnest-post-card h2 a { color: var(--shopnest-ink); text-decoration: none; }
+
+/* Footer */
+.site-footer {
+	background: var(--shopnest-ink);
+	color: #d6d3d1;
+	margin-top: 64px;
+	padding: 40px 0;
+}
+.site-footer a { color: #fff; }
+.footer-inner {
+	display: flex;
+	justify-content: space-between;
+	gap: 24px;
+	flex-wrap: wrap;
+}
+.footer-menu ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	gap: 18px;
+	flex-wrap: wrap;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+	.woocommerce ul.products { grid-template-columns: repeat(2, 1fr); }
+	.shopnest-categories { grid-template-columns: repeat(2, 1fr); }
+	.shopnest-hero h1 { font-size: 34px; }
+	.header-inner { flex-wrap: wrap; }
+	.main-navigation { margin-left: 0; }
+}
+@media (max-width: 560px) {
+	.woocommerce ul.products,
+	.shopnest-categories,
+	.shopnest-promos { grid-template-columns: 1fr; }
+	.shopnest-hero { padding: 48px 0; }
+	.shopnest-hero h1 { font-size: 28px; }
+}

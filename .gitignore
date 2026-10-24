@@ -1,0 +1,8 @@
+# This repo holds the ShopNest theme + demo content + docs only.
+# WordPress core, plugins, uploads and credentials are never committed here.
+*.log
+*.sql
+.env
+.DS_Store
+node_modules/
+dist/
